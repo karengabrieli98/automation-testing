@@ -14,8 +14,10 @@ public class ExemploSeleniumTest {
     public void TesteSelenium() throws InterruptedException {
 
         WebDriver driver = new ChromeDriver();
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10)); // Define quanto tempo o WebDriver deve esperar pelo carregamento completo da página.
 
         driver.get("https://demo.automationtesting.in/Register.html");
+        driver.findElement(By.xpath("/html/body/div/div[2]/div[1]/div[2]/div[2]/buttons[1]/p")).click();
         //nome
         driver.findElement(By.cssSelector("input[ng-model='FirstName']")).sendKeys("Luara");
         // sobrenome
@@ -33,7 +35,7 @@ public class ExemploSeleniumTest {
 
         //Languages
         //driver.findElement((By.cssSelector("#msdd"))).click();
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        //WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
         driver.findElement(By.xpath("//*[@id=\"dismiss-button-element\"]/div")).click();
 
@@ -72,7 +74,7 @@ public class ExemploSeleniumTest {
         driver.findElement(By.xpath("//*[@id=\"submitbtn\"]")).sendKeys("1234");
 
         //Finalizar
-        Thread.sleep(1000);
+        //Thread.sleep(1000);
 
         //comando para fechar o navegador
         driver.quit();
